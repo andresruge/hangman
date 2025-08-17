@@ -1,3 +1,5 @@
+import { useTheme } from "./ThemeContext";
+
 type HangmanWordProps = {
   showWord?: boolean;
   guessedLetters: string[];
@@ -9,6 +11,7 @@ export default function HangmanWord({
   guessedLetters,
   wordToGuess,
 }: HangmanWordProps) {
+  const { primaryColor } = useTheme();
   return (
     <div
       style={{
@@ -21,7 +24,10 @@ export default function HangmanWord({
       }}
     >
       {wordToGuess.split("").map((letter, index) => (
-        <span style={{ borderBottom: ".1em solid black" }} key={index}>
+        <span
+          style={{ borderBottom: `.1em solid ${primaryColor}` }}
+          key={index}
+        >
           <span
             style={{
               visibility:
@@ -29,7 +35,9 @@ export default function HangmanWord({
                   ? "visible"
                   : "hidden",
               color:
-                !guessedLetters.includes(letter) && showWord ? "red" : "black",
+                !guessedLetters.includes(letter) && showWord
+                  ? "red"
+                  : primaryColor,
             }}
           >
             {letter}

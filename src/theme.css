@@ -1,0 +1,47 @@
+:root {
+  --light-bg: #fff;
+  --light-text: #213547;
+  --light-primary: black;
+  --light-btn-bg: none;
+  --light-btn-hover-bg: #f0f0f0;
+  --light-btn-active-bg: dimgray;
+  --light-btn-active-text: white;
+  --light-btn-inactive-opacity: 0.3;
+
+  --dark-bg: #242424;
+  --dark-text: rgba(255, 255, 255, 0.87);
+  --dark-primary: white;
+  --dark-btn-bg: #1a1a1a;
+  --dark-btn-hover-bg: #3a3a3a;
+  --dark-btn-active-bg: #555;
+  --dark-btn-active-text: white;
+  --dark-btn-inactive-opacity: 0.5;
+}
+
+html[data-theme="light"] {
+  --bg-color: var(--light-bg);
+  --text-color: var(--light-text);
+  --primary-color: var(--light-primary);
+  --btn-bg: var(--light-btn-bg);
+  --btn-hover-bg: var(--light-btn-hover-bg);
+  --btn-active-bg: var(--light-btn-active-bg);
+  --btn-active-text: var(--light-btn-active-text);
+  --btn-inactive-opacity: var(--light-btn-inactive-opacity);
+}
+
+html[data-theme="dark"] {
+  --bg-color: var(--dark-bg);
+  --text-color: var(--dark-text);
+  --primary-color: var(--dark-primary);
+  --btn-bg: var(--dark-btn-bg);
+  --btn-hover-bg: var(--dark-btn-hover-bg);
+  --btn-active-bg: var(--dark-btn-active-bg);
+  --btn-active-text: var(--dark-btn-active-text);
+  --btn-inactive-opacity: var(--dark-btn-inactive-opacity);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.25s, color 0.25s;
+}
