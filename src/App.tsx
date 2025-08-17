@@ -19,7 +19,8 @@ export default function App() {
 
   const addGuessedLetter = useCallback(
     (letter: string) => {
-      console.log(letter);
+      letter = letter.toLowerCase();
+      //console.log(letter);
       if (guessedLetters.includes(letter) || gameWon || gameLost) return;
       setGuessedLetters((prev) => [...prev, letter]);
     },
@@ -29,8 +30,8 @@ export default function App() {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const letter = event.key;
-      console.log(letter);
-      if (!letter.match(/^[a-z]$/)) return;
+      //console.log(letter);
+      if (!letter.match(/^[a-zA-Z]$/)) return;
       event.preventDefault();
       addGuessedLetter(letter);
     };
@@ -48,7 +49,7 @@ export default function App() {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const key = event.key;
-      console.log(key);
+      //console.log(key);
       if (key !== "Enter") return;
       event.preventDefault();
       setGuessedLetters([]);
@@ -76,6 +77,7 @@ export default function App() {
         style={{
           fontSize: "2rem",
           textAlign: "center",
+          minHeight: "50px",
         }}
       >
         {gameWon && `You won! - ${wordToGuess}`}

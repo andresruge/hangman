@@ -19,13 +19,13 @@ export default function Keyboard({
     <div
       style={{
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(75px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fit, minmax(50px, 1fr))",
         gap: ".5rem",
       }}
     >
       {KEYS.map((key) => {
-        const isActive = activeLetters.includes(key);
-        const isInactive = inactiveLetters.includes(key);
+        const isActive = activeLetters.includes(key.toLowerCase());
+        const isInactive = inactiveLetters.includes(key.toLowerCase());
         return (
           <button
             key={key}
